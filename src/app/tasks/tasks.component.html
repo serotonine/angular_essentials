@@ -1,7 +1,9 @@
 <section id="tasks">
   <header>
+    <img [src]="'assets/users/' + user.avatar" [alt]="user.name" />
     <h2>{{ user.name }}</h2>
-    <button></button>
+
+    <menu><button>Add task</button></menu>
   </header>
   <ul>
     @for (task of getTasksList(user.id); track user.id){

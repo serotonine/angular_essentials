@@ -9,7 +9,7 @@
 header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 2rem;
   gap: 1rem;
 }
@@ -50,6 +50,9 @@ ul {
   gap: 1rem;
   max-height: 50vh;
   overflow: auto;
+}
+img {
+  width: 6rem;
 }
 
 @media (min-width: 768px) {
