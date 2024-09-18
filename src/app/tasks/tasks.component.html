@@ -1,0 +1,13 @@
+<section id="tasks">
+  <header>
+    <h2>{{ user.name }}</h2>
+    <button></button>
+  </header>
+  <ul>
+    @for (task of getTasksList(user.id); track user.id){
+    <li>
+      <app-task [task]="task" />
+    </li>
+    }
+  </ul>
+</section>
