@@ -37,12 +37,11 @@ export class TasksComponent {
   @Input({ required: true }) user!: any;
 
   // All current user tasks.
-  tasksList!: {};
   getTasksList(userId: string) {
     return this.tasks.filter((task) => task.userId === userId);
   }
-  // task from getTasks;
-  getTask(taskId: string) {
-    this.task;
+  // Delete task.
+  onDeleteTask(taskId: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 }

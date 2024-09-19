@@ -10,11 +10,13 @@ import { type User } from './user.model';
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+
   get imgPath() {
     return 'assets/users/' + this.user.avatar;
   }
   // Event.
   @Output() selectUserEvent = new EventEmitter<{}>();
+
   selectUserUser() {
     this.selectUserEvent.emit(this.user);
   }
