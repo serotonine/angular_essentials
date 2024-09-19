@@ -1,9 +1,13 @@
+@if(isOpen){
+<app-new-task (cancel)="closeAddTaskDialog()" />
+}
+
 <section id="tasks">
   <header>
     <img [src]="'assets/users/' + user.avatar" [alt]="user.name" />
     <h2>{{ user.name }}</h2>
 
-    <menu><button>Add task</button></menu>
+    <menu><button (click)="openAddTaskDialog()">Add task</button></menu>
   </header>
   <ul>
     @for (task of getTasksList(user.id); track user.id){
