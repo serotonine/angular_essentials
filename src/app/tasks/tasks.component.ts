@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { type Task } from './task/task.model';
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -54,8 +56,11 @@ export class TasksComponent {
     this.isOpen = false;
   }
 
-  // @Output() addTask = new EventEmitter();
-  // onAddTask(){
-  //   this.onAddTask.emit()
-  // }
+  // Add new Datas.
+  onAddTask(datas: Task) {
+    datas.userId = this.user.id;
+    this.tasks.unshift(datas);
+    console.log('onAddTask');
+    this.closeAddTaskDialog();
+  }
 }
