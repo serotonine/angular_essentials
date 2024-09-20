@@ -1,4 +1,4 @@
-# 01Redo
+# Angular Essentials
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
 
@@ -12,7 +12,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng build --output-path docs --base-href https://serotonine.github.io/angular_essentials/
 
 ## Running unit tests
 

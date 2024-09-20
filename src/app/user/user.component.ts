@@ -16,9 +16,11 @@ export class UserComponent {
     return 'assets/users/' + this.user.avatar;
   }
   // Event.
-  @Output() selectUserEvent = new EventEmitter<{}>();
+  @Output() selectUserEvent = new EventEmitter<User>();
 
   selectUserUser() {
     this.selectUserEvent.emit(this.user);
   }
+  // Toggle class active.
+  @Input({ required: true }) selectedUserId = '';
 }

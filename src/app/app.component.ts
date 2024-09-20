@@ -3,6 +3,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { USERS } from './user/users';
+import { User } from './user/user.model';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,10 @@ import { USERS } from './user/users';
 export class AppComponent {
   users = USERS;
   // TASKS
-  selectedUser?: {};
-  selectUserApp(user: {}) {
+  selectedUser?: User;
+  selectedUserId = '';
+  selectUserApp(user: User) {
     this.selectedUser = user;
+    this.selectedUserId = this.selectedUser.id;
   }
 }

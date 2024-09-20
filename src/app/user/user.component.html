@@ -1,5 +1,8 @@
 <app-card>
-  <button (click)="selectUserUser()">
+  <button
+    (click)="selectUserUser()"
+    [class.active]="selectedUserId === user.id"
+  >
     <img [src]="imgPath" alt="{{ user.name }}" />
     <span>{{ user.name }}</span>
   </button>
