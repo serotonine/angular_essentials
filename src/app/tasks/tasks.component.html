@@ -12,7 +12,7 @@
   <ul>
     @for (task of getTasksList(user.id); track user.id){
     <li>
-      <app-task [task]="task" (complete)="onDeleteTask($event)" />
+      <app-task [task]="task" />
     </li>
     }
   </ul>

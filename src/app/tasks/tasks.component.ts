@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { TasksService } from './tasks.service';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { type Task } from './task/task.model';
@@ -11,41 +12,25 @@ import { type Task } from './task/task.model';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  task = TaskComponent;
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ];
+  /* TypeScript shortcut : init taskService right in the constructor
+    === private taskService: TasksService then in the constructor:
+    this.taskService = TasksService (constructor param). 
+    */
+  /* Another way to implement a service: use Angular inject() fct.
+    private taskService = inject(TasksService).
+    Cf NewTaskComponent.
+  */
+  constructor(private taskService: TasksService) {}
+
   @Input({ required: true }) user!: any;
 
-  // All current user tasks.
+  // All current user's tasks.
   getTasksList(userId: string) {
-    return this.tasks.filter((task) => task.userId === userId);
+    return this.taskService.getUserTasks(userId);
   }
   // Delete task.
   onDeleteTask(taskId: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    this.taskService.deleteTask(taskId);
   }
   // Open | Close Add Task dialog
   isOpen = false;
@@ -58,9 +43,7 @@ export class TasksComponent {
 
   // Add new Datas.
   onAddTask(datas: Task) {
-    datas.userId = this.user.id;
-    this.tasks.unshift(datas);
-    console.log('onAddTask');
+    this.taskService.addTask(datas, this.user.id);
     this.closeAddTaskDialog();
   }
 }

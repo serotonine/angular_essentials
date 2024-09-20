@@ -1,32 +1,32 @@
 export const USERS = [
   {
     id: 'u1',
-    name: 'Jasmine Washington',
-    avatar: 'lapin.png',
+    name: 'Happy Rabbit',
+    avatar: 'lapin.svg',
   },
   {
     id: 'u2',
-    name: 'Heron',
-    avatar: 'heron.png',
+    name: 'Hieronymus van Clauzewitz',
+    avatar: 'heron.svg',
   },
   {
     id: 'u3',
-    name: 'Parrot',
-    avatar: 'perroquet.png',
+    name: 'Jaco Blabla',
+    avatar: 'perroquet.svg',
   },
   {
     id: 'u4',
-    name: 'David Miller',
+    name: 'Bully Pit',
     avatar: 'pitbull.png',
   },
   {
     id: 'u5',
-    name: 'Priya Patel',
+    name: 'Musca Buratica',
     avatar: 'mouche.png',
   },
   {
     id: 'u6',
     name: 'Arjun Singh',
-    avatar: 'mante.png',
+    avatar: 'crowded.svg',
   },
 ];
